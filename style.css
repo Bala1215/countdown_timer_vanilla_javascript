@@ -1,0 +1,110 @@
+*{
+    margin : 0;
+    padding :0;
+    box-sizing: border-box;
+}
+
+.main_container{
+    background-color: #302f2f;
+    color:rgb(101, 101, 231);
+    
+    width:100vw;
+    height:100vh;
+    
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+}
+
+
+.input_container,
+.hr_container,
+.min_container,
+.sec_container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap:1.25rem;
+}
+
+.input_container{
+    /* border:2px solid red; */
+    padding:.5rem;
+}
+
+.hr_container,.min_container,.sec_container{
+    /* border: 2px solid rgb(16, 188, 73); */
+    width:90%;
+
+}
+
+.button_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:1rem;
+
+    position:absolute;
+    top:30rem;
+}
+
+/* for mobile device */
+@media (max-width:480px) {
+    .input_container,.hr_container,.min_container,.sec_container
+    {
+        gap:.5rem;
+    }
+
+    .input_container{
+       flex-direction: column;
+    }
+    .button_container{
+        top:30rem;
+    }
+}
+
+/* for tablet */
+@media (min-width:481px) and (max-width:768px) {
+    .input_container,.hr_container,.min_container,.sec_container
+    {
+        gap:1rem;
+    }
+
+    .input_container{
+       flex-direction: column;
+    }
+    .button_container{
+        top:35rem;
+    }
+}
+
+
+
+button{
+  
+    background-color: rgb(101, 101, 242);
+    color:#fff;
+
+    padding:.5rem;
+    border: none;
+    border-radius: .5rem;
+    font-size: 1em;
+    
+}
+
+p{
+    font-weight: bold;
+    font-size: 1em;
+}
+
+input{
+   padding:.5rem;
+}
+h1{
+    position: absolute;
+    top:3rem;
+}
