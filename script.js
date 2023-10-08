@@ -1,6 +1,7 @@
 const hoursE1 = document.querySelector("#hours");
 const minutesE1 = document.querySelector("#minutes");
 const secondsE1 = document.querySelector("#seconds");
+
 const btnStart = document.querySelector(".btn-start-resume");
 const btnPause = document.querySelector(".btn-pause");
 const btnStop = document.querySelector(".btn-stop");
@@ -10,6 +11,8 @@ let interval;
 let pause = false;
 let totalSeconds , totalSecondsBackup;
 totalSeconds =  totalSecondsBackup = 0;
+
+//for reset and stop , totalSecondsBackup is used.
 
 init();
 
@@ -25,8 +28,10 @@ function init(){
 
     console.log(hours,minutes,seconds);
 
+    //CONVERT hours , minutes into seconds and store it in totalSeconds as well as totalBackupSeconds
     totalSecondsBackup = totalSeconds = hours * 60 * 60+ minutes * 60 + seconds;
 
+    //to alert the user to enter valid number 
     if(totalSeconds < 0){
        alert(" Please Enter Valid Number...!");
        return;
@@ -70,11 +75,13 @@ function init(){
 }
 
 
+// to stop the timer
 function stopTimer(){
     interval = clearInterval(interval);
 }
 
 
+//for every second,totalseconds get decreased by one 
 
 function startTimer(){
     interval = setInterval(()=>{
@@ -84,6 +91,7 @@ function startTimer(){
         totalSeconds--;    
         updateInputs();
 
+        //to avoid getting negative value
         if(totalSeconds<=0){
              stopTimer();
         }
@@ -91,6 +99,8 @@ function startTimer(){
     },1000);
 }
 
+
+//to update the input field for every second
 function updateInputs(){
     const hours = Math.floor(totalSeconds/60/60);
     const minutes = Math.floor(totalSeconds/60);
